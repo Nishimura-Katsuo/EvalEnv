@@ -1,0 +1,24 @@
+{
+  "name": "eval-env",
+  "version": "1.0.0",
+  "description": "An API to execute code from remote sources.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "pretest": "sudo docker build . --tag eval-env",
+    "test": "sudo docker run -p 12345:80 eval-env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nishimura-Katsuo/EvalEnv.git"
+  },
+  "author": "Nishimura-Katsuo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nishimura-Katsuo/EvalEnv/issues"
+  },
+  "homepage": "https://github.com/Nishimura-Katsuo/EvalEnv#readme",
+  "dependencies": {
+    "ws": "^6.2.1"
+  }
+}
