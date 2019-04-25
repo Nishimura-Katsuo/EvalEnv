@@ -1,6 +1,6 @@
 #!/bin/bash
 SRC="$@/eval.java"
-RUN="timeout 3s java $SRC"
+RUN="timeout 5s java $SRC"
 [ ! -d $@ ] && mkdir $@
 cat > $SRC
 $RUN &> $@/log

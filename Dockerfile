@@ -22,12 +22,6 @@ RUN apt-get install -y --no-install-recommends openjdk-11-jdk-headless
 RUN apt-get install -y sudo
 RUN apt-get clean
 WORKDIR /var/eval/
-RUN mkdir -p /var/eval/cmds
-COPY ./cmds /var/eval/cmds
-RUN mkdir -p /var/eval/src
-COPY ./src /var/eval/src
-RUN mkdir -p /var/eval/cert
-COPY ./cert /var/eval/cert
 COPY ./package*.json /var/eval/
 RUN npm install
 EXPOSE 12345

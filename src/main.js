@@ -11,17 +11,8 @@ if (cluster.isMaster) {
 	const fs = require('fs');
 	const cp = require('child_process');
 	const websocket = require('ws');
-	let httpServer;
-
-	try {
-		httpServer = require('https').createServer({
-			ca: fs.readFileSync('cert/server.ca-bundle'),
-			key: fs.readFileSync('cert/server.key'),
-			cert: fs.readFileSync('cert/server.crt'),
-		});
-	} catch (err) {
-		httpServer = require('http').createServer();
-	}
+	let httpServer = require('http').createServer();
+	console.log("Eval-Env: Websockets using http.");
 
 	const server = new websocket.Server({ server: httpServer });
 	let evalcount = 0, tmpfilename = () => '/tmp/eval' + (++evalcount);
@@ -67,4 +58,5 @@ if (cluster.isMaster) {
 	});
 
 	httpServer.listen(80);
+	console.log("Eval-Env: Eval daemon started!");
 }

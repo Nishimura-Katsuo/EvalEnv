@@ -5,8 +5,9 @@
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
-    "pretest": "sudo docker build . --tag eval-env",
-    "test": "sudo docker run -p 12345:80 eval-env"
+    "build": "sudo docker build . --tag nishimurakatsuo/eval-env",
+    "test": "sudo docker run -p 12345:80 -v /var/eval:/var/eval nishimurakatsuo/eval-env",
+    "start-service": "sudo docker run -p 12345:80 -v /var/eval:/var/eval -dit --restart unless-stopped nishimurakatsuo/eval-env"
   },
   "repository": {
     "type": "git",
